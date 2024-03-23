@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import textInput from './textInput.vue'
+import textInput from '@/components/inputs/textInput.vue'
 
 const weather = ['Sunny', 'Cloudy', 'Rainy', 'Snowy', 'Windy'] // can think of more idk.
 const selected = ref(false)
@@ -15,7 +15,7 @@ function toggleDatePicker(): void {
 <template>
   <!-- this meeds to be as wide as the page-->
   <v-form class="pa-10" variant="outlined">
-    <v-container>
+    <v-container class="ma-10">
       <textInput label="CampGround" placeholder="Ramblin Redwoods" inputType="text" />
       <v-row>
         <v-col cols="12" md="6">
@@ -26,7 +26,7 @@ function toggleDatePicker(): void {
         </v-col>
       </v-row>
 <v-row>
-     <v-col>
+     <v-col style="display: flex; justify-content: space-between;">
           <v-btn @click="toggleDatePicker">Select Date</v-btn>
           <v-date-picker v-model="selectedDate" color="primary" :show-week="true" v-if="showDatePicker"></v-date-picker>
           <v-text-field v-model="selectedDate" label="Selected Date" readonly></v-text-field>

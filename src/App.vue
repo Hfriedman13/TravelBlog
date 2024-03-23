@@ -1,25 +1,38 @@
 <script setup lang="ts">
-import titlePage from './components/titlePage.vue'
-// import timeline from './components/homeTimeLine.vue'
-import blogForm from './components/blogForm.vue';
+import logo from './assets/logoFull-removebg.png'
+import blogForm from './components/blogForm.vue'
+// import {mdiArrowRight} from '@mdi/font'
+// icon="mdi-arrow-right" icon="mdi-arrow-left"
 </script>
 
 <template>
-  <div>
-    <!-- fix eventually -->
-    <header style="position: fixed; top: 0; left: 0; width: 25%; z-index: 1000">
-      <v-container class="mx-0" fixed>
-        <div>
-          <titlePage msg="Welcome to Our Blog!" />
-        </div>
-      </v-container>
-    </header>
-  </div>
+  <v-sheet class="d-flex flex-wrap" style="background: transparent;"> 
+    <v-sheet class="flex-1-0 ma-2 pa-2" style="background: transparent;">
+      <!-- Header -->
+      <header >
+        <v-container class="mx-0" fixed>
+          <div>
+            <img :src="logo" alt="Logo" />
+          </div>
+        </v-container>
+      </header>
 
+      <!-- Blog Content -->
+          <v-card>
+            <span>Blog posts to go here!</span>
+            <v-card-actions class="d-flex justify-space-between">
+              <v-btn  rounded color="green-darken-1" variant="outlined">Back</v-btn>
+              <v-btn rounded color="green-darken-3" variant="outlined">Next</v-btn>
+            </v-card-actions>
+          </v-card>
+    </v-sheet>
+  </v-sheet>
+
+  <!-- Blog Form -->
   <v-container class="d-flex flex-row fixed">
     <v-row>
       <v-col>
-       <blogForm/>
+        <blogForm />
       </v-col>
     </v-row>
   </v-container>
