@@ -2,9 +2,10 @@
 import { defineEmits } from 'vue';
 
 const emits = defineEmits(['save']);
-const saveForm = () => {
-    // Here you can gather the form data and emit it to the parent component
-    emits('save', /* pass form data */);
+
+// eventually make universal not just save for form
+const saveForm = (formData: FormData) => {
+    emits('save',formData);
 };
 </script>
 

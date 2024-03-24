@@ -3,18 +3,36 @@ import { ref } from 'vue'
 import textInput from '@/components/inputs/textInput.vue'
 import saveBtn from '../buttons/saveBtn.vue';
 
+interface FormData {
+    campground: string;
+    location: string;
+    phoneNumber: string;
+    selectedDate: Date | null;
+    weather: string;
+    siteNumber: string;
+    idealSiteNumbers: string;
+    meetPeople: boolean;
+    whoDidWeMeet?: string;
+    offerings: string;
+    placesVisited: string;
+    enjoyedMost: string;
+    memorableMoment: string;
+    placesToRemember: string;
+    additionalComments: string;
+}
+
 const weather = ['Sunny', 'Cloudy', 'Rainy', 'Snowy', 'Windy'] // can think of more idk.
 const selected = ref(false)
 const showDatePicker = ref(false)
 const selectedDate = ref(null)
-const formData = ref({}); // need to add form obj
+const formData = ref<FormData>();
 
 function toggleDatePicker(): void {
   showDatePicker.value = !showDatePicker.value
 }
 
 const saveFormData = (data: any) => {
-    formData.value = data;
+    formData.value = data.value;
     console.log(data) // undefined
 };
 </script>
@@ -30,7 +48,7 @@ const saveFormData = (data: any) => {
             <textInput label="Location" placeholder="Crecent City, CA" inputType="text" />
           </v-col>
           <v-col cols="12" md="6">
-            <textInput label="Phone Number" placeholder="123-456-7890" inputType="number" />
+            <textInput label="Phone Number" placeholder="123-456-7890"/>
           </v-col>
         </v-row>
         <v-row>
